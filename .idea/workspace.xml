@@ -35,7 +35,7 @@
       <file leaf-file-name="database.yml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/database.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="16" selection-start="166" selection-end="166" vertical-scroll-proportion="0.20430107" vertical-offset="0" max-vertical-offset="930">
+            <state line="10" column="16" selection-start="166" selection-end="166" vertical-scroll-proportion="0.21064301" vertical-offset="0" max-vertical-offset="902">
               <folding />
             </state>
           </provider>
@@ -63,9 +63,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="64" />
-    <option name="y" value="-4" />
+    <option name="y" value="24" />
     <option name="width" value="1857" />
-    <option name="height" value="1085" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -444,7 +444,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1857" height="1085" extended-state="6" />
+    <frame x="64" y="24" width="1857" height="1057" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.396875" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -508,7 +508,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/database.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="16" selection-start="166" selection-end="166" vertical-scroll-proportion="0.20430107" vertical-offset="0" max-vertical-offset="930">
+        <state line="10" column="16" selection-start="166" selection-end="166" vertical-scroll-proportion="0.21064301" vertical-offset="0" max-vertical-offset="902">
           <folding />
         </state>
       </provider>
