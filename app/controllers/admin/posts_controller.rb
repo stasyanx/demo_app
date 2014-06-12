@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(posts_params)
     if @post.save
-      MyMailer.welcome_email('ohuen4ik@gmail.com',@post).deliver
+
 
       redirect_to [:admin,@post], notice: t('.create_success')
     else

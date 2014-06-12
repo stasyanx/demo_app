@@ -34,9 +34,9 @@ DemoApp::Application.configure do
   ActionMailer::Base.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
-      :domain               => "ohuen4ik@gmail.com",
-      :user_name            => "ohuen4ik@gmail.com",
-      :password             => "0934247448",
+      :domain               => "",
+      :user_name            => "",
+      :password             => "",
       :authentication       => "plain"
   }
   config.action_mailer.raise_delivery_errors = true
