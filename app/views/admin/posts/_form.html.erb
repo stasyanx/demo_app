@@ -1,0 +1,22 @@
+<%= form_for [:admin, @post], html: {role: 'form', class: 'form-horizontal'} do |f| %>
+
+    <%= validation_errors(@post)%>
+
+    <div class="form-group">
+      <%= f.label :title, class: 'col-sm-1 required' %>
+      <div class="col-sm-5">
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :text, class: 'col-sm-1 required' %>
+      <div class="col-sm-5">
+        <%= f.text_area :text, size: '5x5', class: 'form-control' %>
+
+      </div>
+    </div>
+    <div class="panel-footer">
+    <%= f.submit 'Add Post', class: 'btn ' %>
+    </div>
+<% end %>

@@ -1,11 +1,25 @@
 DemoApp::Application.routes.draw do
-  devise_for :users
+
+  devise_for :users, controllers: {registrations: 'users/registrations',sessions: 'users/sessions'}
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   root 'users/posts#index'
 
+  namespace :users do
+  resources :posts do
+    get :theme, on: :collection
+
+    resource :comments
+  end end
+
+  namespace :admin do
+    #root 'posts#index'
+    get 'login' => 'home#login'
+    resources :posts
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

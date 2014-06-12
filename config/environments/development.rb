@@ -25,16 +25,19 @@ DemoApp::Application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
-  config.assets.debug = true
-
+  config.assets.debug = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_options = {from: 'no-reply@example.com'}
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   ActionMailer::Base.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
-      :domain               => "gmail.com",
+      :domain               => "ohuen4ik@gmail.com",
       :user_name            => "ohuen4ik@gmail.com",
-      :password             => "80934247448",
+      :password             => "0934247448",
       :authentication       => "plain"
   }
+  config.action_mailer.raise_delivery_errors = true
 end
