@@ -22,7 +22,7 @@ gem 'passenger', '~> 4.0.45'
 gem 'puma'
 gem 'pg'
 gem 'devise'
-
+gem 'rails_12factor'
 gem 'bcrypt', '~> 3.1.7'
 gem 'pry'
 
