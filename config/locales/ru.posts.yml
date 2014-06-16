@@ -1,0 +1,16 @@
+ru:
+  users:
+    posts:
+      index:
+        search: Поиск
+        demo_app: Тестовое приложение
+        comments: Коментарии
+        read_more: Читать дальше
+        categories: Категории
+        by: Добавлено
+        posted: Опубликовано
+        ago: назад
+      show:
+        add_comment: Добавить комментарий
+        no_comment:  Нет коментариев
+        comment: Комментировать

@@ -1,15 +1,24 @@
 class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
+  before_filter :set_il8n_locale_from_params
 
 
-  #layout 'admin', :except => :login
+  protected
 
-  before_filter :require_admin_user, :except => [:login, :send_report]
+  def set_il8n_locale_from_params
+    if params[:locale]
+      if I18n.available_locales.include?(params[:locale].to_sym)
+        I18n.locale = params[:locale]
+        else
+        flash.now[:notice ] = "#{params[:locale]} translation not available "
+       logger.error flash.now[:notice]
+      end
+      end
+  end
 
-
-  def require_admin_user
-    #redirect_to '/admin/login' unless session[:admin] || Rails.env.test?
+  def default_url_options
+  { locale:  I18n.locale }
   end
 
 end

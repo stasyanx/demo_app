@@ -1,9 +1,8 @@
 module Admin
-class PostsController < ApplicationController
+  class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order('created_at DESC')
-
   end
 
   def show
@@ -17,9 +16,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(posts_params)
     if @post.save
-
-
-      redirect_to [:admin,@post], notice: t('.create_success')
+      redirect_to [:admin,@post], notice: 'create successfully'
     else
       render :new
     end
@@ -31,9 +28,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html{ }
       format.js
-
     end
-
   end
 
   def posts_params

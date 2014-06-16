@@ -1,0 +1,16 @@
+en:
+  users:
+    posts:
+      index:
+        search: Search
+        demo_app: Demo app
+        comments: Comments
+        read_more: Read more
+        categories: Categories
+        by: By
+        posted: Posted
+        ago: назад
+      show:
+        add_comment: Add comment
+        no_comment:  No comments yet
+        comment: Сomment it

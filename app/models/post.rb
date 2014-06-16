@@ -6,5 +6,11 @@ class Post < ActiveRecord::Base
 
 
   belongs_to :user
-  has_many :comments  , dependent: :destroy
+  has_many :comments , dependent: :destroy
+
+
+  def self.search(search)
+    #binding.pry;
+      where(['text || title LIKE ?', "%#{search}%"])
+  end
 end

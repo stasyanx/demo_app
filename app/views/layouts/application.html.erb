@@ -23,33 +23,40 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
 
-        <li><%= link_to 'Post',users_posts_path %></li>
-        <li><%= link_to 'About','' %></li>
-        <li><a href="https://github.com/stasyanx/demo_app/tree/master">Source code</a></li>
+        <li><%= link_to t('.posts'),users_posts_path %></li>
+        <li><%= link_to t('.about'),'' %></li>
+        <li><a href="https://github.com/stasyanx/demo_app/tree/master"><%=t('.git')%></a></li>
       </ul>
-      <div class="pull-right">
+      <div class="pull-right" id="login">
       <% if current_user.blank? %>
           <button class="btn " data-toggle="modal" data-target="#signin">
-            Login
+           <%=t('.sign_in')%>
           </button>
-          OR
+          <%= t('.or')%>
           <button class="btn " data-toggle="modal" data-target="#signup">
-            Sign up
+           <%=t('.sign_up')%>
           </button>
       <% else %>
           <%= link_to 'Logout', destroy_user_session_path, method: :delete,class:'btn btn-primary' %>
       <% end %>
         </div>
+      <div class="col-sm-1" id="locale">
+      <%= form_for root_path , method: :get do %>
+       <%= select_tag :set_locale ,
+             options_for_select( LANGUAGES, I18n.locale.to_s ) ,
+             onchange: 'this.form.submit()',class:'form-control' %>
+
+
+       <% end %>
+      </div>
           <div class="login"> <!-- Button trigger modal -->
-
-
             <!-- Modal -->
             <div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+                    <h4 class="modal-title" id="myModalLabel"><%=t('.sign_in')%></h4>
                   </div>
                   <div class="modal-body">
                                 <%=render template:'devise/sessions/new'%>
@@ -65,7 +72,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+              <h4 class="modal-title" id="myModalLabel"><%=t('.sign_up')%></h4>
             </div>
             <div class="modal-body">
               <%=render template:'devise/registrations/new'%>

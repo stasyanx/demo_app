@@ -1,9 +1,13 @@
 module Users
-  class  PostsController < ApplicationController
+  class PostsController < ApplicationController
 
 
     def index
-      @posts = Post.all.order('created_at DESC')
+      if params[:set_locale]
+        redirect_to root_url(locale: params[:set_locale])
+      else
+        @posts = Post.all.order('created_at DESC').search(params[:search])
+      end
     end
 
     def show

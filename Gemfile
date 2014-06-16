@@ -2,12 +2,12 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.4'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'sass-rails', '~> 4.0.2'
-
+gem 'capistrano'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'coffee-rails', '~> 4.0.0'
 gem 'cancan'
-
+gem 'rails-i18n'
 gem 'jquery-rails'
 
 gem 'turbolinks'
@@ -18,6 +18,7 @@ gem 'faker', '~> 1.2.0'
 group :doc do
   gem 'sdoc', require: false
 end
+gem 'passenger', '~> 4.0.45'
 gem 'puma'
 gem 'pg'
 gem 'devise'

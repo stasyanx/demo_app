@@ -1,5 +1,5 @@
 module Users
-  class RegistrationsController <  Devise::SessionsController
+  class RegistrationsController <  Devise::RegistrationsController
 
   end
 end

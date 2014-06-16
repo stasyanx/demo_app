@@ -1,0 +1,9 @@
+ru:
+  layouts:
+    application:
+      posts: Посты
+      about: Обо Мне
+      sign_up: Регистрация
+      sign_in: Войти
+      or: Или
+      git: Проект на GitHub

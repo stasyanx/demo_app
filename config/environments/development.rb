@@ -34,10 +34,11 @@ DemoApp::Application.configure do
   ActionMailer::Base.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
-      :domain               => "",
-      :user_name            => "",
-      :password             => "",
-      :authentication       => "plain"
+      domain: ENV["GMAIL_DOMAIN"],
+      authentication: 'plain',
+      enable_starttls_auto: true,
+      user_name: ENV["GMAIL_USERNAME"],
+      password: ENV["GMAIL_PASSWORD"]
   }
   config.action_mailer.raise_delivery_errors = true
 end
