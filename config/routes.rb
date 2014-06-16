@@ -6,13 +6,13 @@ DemoApp::Application.routes.draw do
     root 'users/posts#index'
 
     namespace :users do
-      resources :posts
+      resources :posts do
 
 
         resource :comments
       end
     end
-
+  end
 
   namespace :admin do
     #root 'posts#index'
