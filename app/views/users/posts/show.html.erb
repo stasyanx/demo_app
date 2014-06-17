@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="panel panel-default">
+      <h2 class="lead" style="text-align: center"><%= @post.title %></h2>
+
+      <div class="panel-body">
+        <%= @post.text %>
+        <hr>
+                    <button class="btn btn-info"><%= t('.add_comment')%></button>
+        <div class="well" id="coment-well">
+          <%= form_for [:users,@post, Comment.new], html: {role: 'form', class: 'form-horizontal'} do |f| %>
+              <div class="form-group">
+                <%= f.text_area :text, size: '5x5', class: 'form-control' %>
+
+              </div>
+              <%= f.submit t('.comment'), class: 'btn btn-primary' ,id:'comment' %>
+          <% end %>
+        </div>
+
+        <hr>
+
+        <div id="comments">
+          <% if @post.comments.blank? %>
+              <div class="alert alert-info"><%= t('.no_comment')%></div>
+          <% else %>
+              <% @post.comments.each do |c| %>
+
+                  <h3> <%= c.user.try(:email) ||'anonymous' %>
+                    <small><%= time_ago_in_words c.created_at %> ago</small>
+                  </h3>
+                  <p><%= c.text %> </p>
+              <% end %>
+              </div>
+          <% end %>
+
+          </div>
+    </div>
+  </div>
+</div>

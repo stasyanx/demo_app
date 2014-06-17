@@ -1,0 +1,9 @@
+en:
+  layouts:
+    application:
+      posts: Posts
+      about: About
+      sign_in: Login
+      sign_up: Sign Up
+      or: Or
+      git: Project files on GitHub

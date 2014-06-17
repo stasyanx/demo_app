@@ -1,0 +1,22 @@
+<table class="table table-striped">
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th>Delete</th>
+  </tr>
+  <% @posts.each do |p| %>
+
+      <tr id="<%=p.id%>">
+
+        <td><%= link_to p.title, admin_post_path(p) %></td>
+        <td><%=p.text %></td>
+          <td>
+         <%= link_to 'Delete', [:admin, p], method: :delete,
+
+                         class: 'btn btn-danger btn-xs',remote: true   %> </td>
+      </tr>
+  <% end %>
+</table>
+<div class="panel-footer">
+  <%= link_to 'Add Post',new_admin_post_path,class:'btn btn-primary'%>
+        </div>

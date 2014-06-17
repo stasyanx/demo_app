@@ -1,0 +1,7 @@
+.rvmrc
+.bundle
+.idea/
+
+log/
+tmp/
+

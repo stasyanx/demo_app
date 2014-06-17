@@ -1,0 +1,5 @@
+<% if @comment.new_record?%>
+    $('#comment_text').effect('highlight', {color: 'red'});
+<% else %>
+    $('#comments').html('<%= j render @comment %>').effect('highlight', {}, 3000);
+<% end %>

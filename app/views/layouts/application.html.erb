@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DemoApp</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+        <li><%= link_to t('.posts'),users_posts_path %></li>
+        <li><%= link_to t('.about'),'' %></li>
+        <li><a href="https://github.com/stasyanx/demo_app/tree/master"><%=t('.git')%></a></li>
+      </ul>
+      <div class="pull-right" id="login">
+      <% if current_user.blank? %>
+          <button class="btn " data-toggle="modal" data-target="#signin">
+           <%=t('.sign_in')%>
+          </button>
+          <%= t('.or')%>
+          <button class="btn " data-toggle="modal" data-target="#signup">
+           <%=t('.sign_up')%>
+          </button>
+      <% else %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete,class:'btn btn-primary' %>
+      <% end %>
+        </div>
+      <div class="col-sm-1" id="locale">
+      <%= form_for root_path , method: :get do %>
+       <%= select_tag :set_locale ,
+             options_for_select( LANGUAGES, I18n.locale.to_s ) ,
+             onchange: 'this.form.submit()',class:'form-control' %>
+
+
+       <% end %>
+      </div>
+          <div class="login"> <!-- Button trigger modal -->
+            <!-- Modal -->
+            <div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel"><%=t('.sign_in')%></h4>
+                  </div>
+                  <div class="modal-body">
+                                <%=render template:'devise/sessions/new'%>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+      <!-- Modal -->
+      <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel"><%=t('.sign_up')%></h4>
+            </div>
+            <div class="modal-body">
+              <%=render template:'devise/registrations/new'%>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<% if notice.present? %>
+    <div class="alert alert-success"><%= notice %></div>
+<% end %>
+
+<% if alert.present? %>
+    <div class="alert alert-danger"><%= alert %></div>
+<% end %>
+<%= yield %>
+
+</body>
+</html>

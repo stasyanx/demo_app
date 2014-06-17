@@ -1,0 +1,9 @@
+module Admin
+class HomeController < ApplicationController
+
+  def login
+
+  end
+
+  end
+end
