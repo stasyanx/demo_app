@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-
+  mount_uploader :image, ImageUploader
   validates :title ,presence: true
   validates :text ,presence: true
 
@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments , dependent: :destroy
+  has_many :images
 
 
   def self.search(search)

@@ -1,0 +1,18 @@
+development:
+  cloud_name: dubt9kuro
+  api_key: '398277286178162'
+  api_secret: rUjzUIM563BBnmDhIOtaYSSt408
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dubt9kuro
+  api_key: '398277286178162'
+  api_secret: rUjzUIM563BBnmDhIOtaYSSt408
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dubt9kuro
+  api_key: '398277286178162'
+  api_secret: rUjzUIM563BBnmDhIOtaYSSt408
+  enhance_image_tag: true
+  static_image_support: false
