@@ -12,8 +12,8 @@
           <p><span class="glyphicon glyphicon-time"></span><%=t('.posted')%> <%= time_ago_in_words p.created_at %> <%=t('.ago')%> </p>
           <p><em><%=t('.comments')%> <%= p.comments.count %> </em> </p>
           <hr>
-          <img src="http://placehold.it/900x300" class="img-responsive">
-          <hr>
+
+          <hr>     <%= link_to (image_tag p.image_url(:standard)), users_post_path(p) %>
           <p> <%= p.text %></p>
 
           <a class="btn btn-primary" href="<%= users_post_path(p) %>">
@@ -61,8 +61,6 @@
           <div class="col-lg-6">
             <ul class="list-unstyled">
               <li><a href="#dinosaurs">Dinosaurs</a>
-                <%=link_to 'dino',Post.where('theme=?','  dino  ').first
-                %>
               </li>
               <li><a href="#spaceships">Spaceships</a>
               </li>

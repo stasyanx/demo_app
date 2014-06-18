@@ -4,7 +4,9 @@
       <h2 class="lead" style="text-align: center"><%= @post.title %></h2>
       <div class="panel-body">
         <%= @post.text %>
+        <%= image_tag @post.image_url(:thumbnail),style:'float: left'%>
         <hr>
+        <%= link_to 'Edit',edit_admin_post_path(@post),class:'btn btn-primary'%>
           </div>
     </div>
   </div>

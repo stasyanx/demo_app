@@ -6,11 +6,10 @@ DemoApp::Application.routes.draw do
     root 'users/posts#index'
 
     namespace :users do
-      resources :posts do
-
-
+      resources :posts , only: [:index,:show] do
         resource :comments
       end
+      resources :about ,only: [:index]
     end
   end
 
