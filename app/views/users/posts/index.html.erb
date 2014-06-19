@@ -6,7 +6,7 @@
           <!-- blog entry -->
           <h1><%= link_to p.title, users_post_path(p) %>   </h1>
               <% if p.user.present?%>
-          <p class="lead"><%= t('.by')%> <%= p.user.try(:email)%></p>
+          <p class="lead"><%= t('.by')%> <%= p.user.try(:name)%></p>
               <%end%>
           <hr>
           <p><span class="glyphicon glyphicon-time"></span><%=t('.posted')%> <%= time_ago_in_words p.created_at %> <%=t('.ago')%> </p>

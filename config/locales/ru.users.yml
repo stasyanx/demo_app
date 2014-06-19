@@ -1,0 +1,12 @@
+ru:
+  users:
+    users:
+      show:
+        comments: Коментарии
+        profile:  Профиль
+        settings: Настройки
+        at_theme: В теме
+        created_at: Создан
+        lastsignin: Заходил последний раз
+      form:
+        submit: ОК

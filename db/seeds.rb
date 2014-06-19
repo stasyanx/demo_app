@@ -8,9 +8,14 @@
 
 p 'Creating posts, user and comments...'
 10.times do
- u = User.create(email: Faker::Name.name ,id:rand(1..10))
+p u = User.create(email: Faker::Internet.email,
+                  first_name: Faker::Internet.user_name,
+                  last_name: Faker::Internet.user_name,
+                  password: Faker::Internet.password )
  p = Post.create(text:Faker::Lorem.paragraph(10), title:Faker::Lorem.sentence,theme:Faker::Lorem.word,user_id:u.id  )
+10.times do
  Comment.create(text:Faker::Lorem.paragraph, post_id: p.id, user_id:u.id )
+  end
 end
 
 p 'Done'

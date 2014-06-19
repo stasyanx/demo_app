@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
   before_filter :set_il8n_locale_from_params
-
+  before_action :authenticate_user!
 
   protected
 

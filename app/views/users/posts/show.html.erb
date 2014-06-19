@@ -25,7 +25,7 @@
           <% else %>
               <% @post.comments.each do |c| %>
 
-                  <h3> <%= c.user.try(:email) ||'anonymous' %>
+                  <h3> <%= c.user.try(:name) ||'anonymous' %>
                     <small><%= time_ago_in_words c.created_at %> ago</small>
                   </h3>
                   <p><%= c.text %> </p>
