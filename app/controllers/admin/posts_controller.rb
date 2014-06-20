@@ -1,5 +1,5 @@
 module Admin
-  class PostsController < ApplicationController
+  class PostsController < Admin::AdminController
 
   def index
     @posts = Post.all.order('created_at DESC')
