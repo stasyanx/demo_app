@@ -1,4 +1,8 @@
-$("#users a").click (e) ->
-  e.preventDefault()
-  $(this).tab "show"
+$(document).on "page:change", (e) ->
+  e.preventDefault
+  $("#users a").click (e) ->
+    $(this).tab "show"
+    return
+
   return
+

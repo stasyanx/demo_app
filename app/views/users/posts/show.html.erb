@@ -23,9 +23,9 @@
           <% if @post.comments.blank? %>
               <div class="alert alert-info"><%= t('.no_comment')%></div>
           <% else %>
-              <% @post.comments.each do |c| %>
+              <% @post_comments.each do |c| %>
 
-                  <h3> <%= c.user.try(:name) ||'anonymous' %>
+                  <h3> <%=link_to c.user.try(:name) ||'anonymous',users_user_path(c.user_id) %>
                     <small><%= time_ago_in_words c.created_at %> ago</small>
                   </h3>
                   <p><%= c.text %> </p>

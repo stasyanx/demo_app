@@ -4,15 +4,13 @@
       <ul class="nav nav-tabs" id="users">
         <li class="active"><a href="#profile"><%=t('.profile')%></a></li>
         <li><a href="#messages"><%=t('.comments')%></a></li>
+        <% if current_user.try(:name) == @user.name %>
         <li><a href="#settings"><%=t('.settings')%></a></li>
+        <%end%>
       </ul>
 
-      <script>
-          $('#users a').click(function (e) {
-              e.preventDefault()
-              $(this).tab('show')
-          })
-      </script>
+
+
       <div class="tab-content">
         <div class="tab-pane active" class="tab-pane" id="profile">
           <h2><%= @user.name %></h2>
@@ -32,9 +30,11 @@
             <hr>
         <%end%>
   </div>
+
   <div class="tab-pane" id="settings">
     <%= render 'form' %>
   </div>
+
       </div>
     </div>
   </div>
