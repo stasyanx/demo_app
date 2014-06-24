@@ -7,16 +7,14 @@ class CommentsController < ApplicationController
 
     if @comment.save
       redirect_to [:users,@post],notice: 'Commented'
-    else
-      redirect_to [:users,@post],alert:  'Comment empty'
     end
 
   end
 
-def destroy
-  @post = Post.find(params[:id])
-  @comment = @post.comments.delete
-end
+  def destroy
+    @post = Post.find(params[:id])
+    @comment = @post.comments.delete
+  end
 
 
   private

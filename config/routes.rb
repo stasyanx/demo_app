@@ -16,6 +16,7 @@ DemoApp::Application.routes.draw do
 
   namespace :admin do
     post 'login' => 'home#login'
+    get 'login' => 'home#login'
     resources :posts
   end
 
