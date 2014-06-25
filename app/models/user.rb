@@ -5,7 +5,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
+  mount_uploader :avatar, ImageUploader
+
   has_many :posts
   has_many :comments
   has_many :images
+
+  def name
+   "#{first_name}" +' '+ "#{last_name}"
+  end
+
 end

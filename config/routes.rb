@@ -6,15 +6,16 @@ DemoApp::Application.routes.draw do
     root 'users/posts#index'
 
     namespace :users do
-      resources :posts , only: [:index,:show] do
+      resources :posts, only: [:index,:show] do
         resource :comments
       end
-      resources :about ,only: [:index]
+      resources :about, only: [:index]
+      resources :users, path:'current_user'
     end
   end
 
   namespace :admin do
-    #root 'posts#index'
+    post 'login' => 'home#login'
     get 'login' => 'home#login'
     resources :posts
   end

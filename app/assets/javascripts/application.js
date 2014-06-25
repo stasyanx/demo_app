@@ -16,5 +16,6 @@
 //= require bootstrap
 //= require_tree .
 
-//= require posts
+//= require users/posts
+//= require users/users
 //= require admin/posts

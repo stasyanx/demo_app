@@ -6,3 +6,6 @@ ru:
         password: Пароль
         email: Эл.почта
         password_confirmation: Повторить пароль
+        last_name: Фамилия
+        first_name: Имя
+        avatar: Фото

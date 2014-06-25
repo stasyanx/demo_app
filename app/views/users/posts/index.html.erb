@@ -1,89 +1,79 @@
-<div class="container" >
+<div class="container">
   <div class="row">
     <div class="col-lg-8">
-      <h1><b><%= t('.demo_app')%></b></h1>
+      <h1><b><%= t('.demo_app') %></b></h1>
       <% @posts.each do |p| %>
           <!-- blog entry -->
-          <h1><%= link_to p.title, users_post_path(p) %>   </h1>
-              <% if p.user.present?%>
-          <p class="lead"><%= t('.by')%> <%= p.user.try(:email)%></p>
-              <%end%>
-          <hr>
-          <p><span class="glyphicon glyphicon-time"></span><%=t('.posted')%> <%= time_ago_in_words p.created_at %> <%=t('.ago')%> </p>
-          <p><em><%=t('.comments')%> <%= p.comments.count %> </em> </p>
-          <hr>
 
-          <hr>     <%= link_to (image_tag p.image_url(:standard)), users_post_path(p) %>
+          <h1><%= link_to p.title, users_post_path(p) %>   </h1>
+          <% if p.user.present? %>
+              <p class="lead"><%= t('.by') %> <%= p.user.try(:name) %>
+          <% end %>
+          <hr>
+          <p>
+            <span class="glyphicon glyphicon-time"></span><%= t('.posted') %> <%= time_ago_in_words p.created_at %> <%= t('.ago') %>
+          </p>
+
+          <p><em><%= t('.comments') %> <%= p.comments.count %> </em></p>
+          <% if p.image_url(:standard).blank? %>
+              <img src="http://placehold.it/750x350" class="img-responsive">
+          <% else %>
+              <hr>     <%= link_to (image_tag p.image_url(:standard)), users_post_path(p) %>
+          <% end %>
           <p> <%= p.text %></p>
 
           <a class="btn btn-primary" href="<%= users_post_path(p) %>">
-            <%=t('.read_more')%><span class="glyphicon glyphicon-chevron-right"></span></a>
+            <%= t('.read_more') %><span class="glyphicon glyphicon-chevron-right"></span></a>
 
           <hr>
       <% end %>
 
-      <hr>
+
 
       <!-- pager -->
-      <ul class="pager">
-        <li class="previous"><a href="#">&larr; Older</a>
-        </li>
-        <li class="next"><a href="#">Newer &rarr;</a>
-        </li>
+      <ul class="pagination" style="margin: 0px !important; padding-left: 10px">
+        <%= paginate @posts %>
       </ul>
 
     </div>
 
-    <div class="col-lg-4" >
+    <div class="col-lg-4">
       <div class="well">
-        <h4><%= t('.search')%></h4>
-        <% if params[:search]%>
-                  <b><%= 'Results found:'"#{@posts.size}"%></b>
+        <h4><%= t('.search') %></h4>
+        <% if params[:search] %>
+            <b><%= 'Results found:' "#{@posts.size}" %></b>
         <% end %>
         <div class="input-group">
 
-        <%= form_tag users_posts_path, method: 'get' do %>
+          <%= form_tag users_posts_path, method: 'get' do %>
                   <span class="input-group-btn">
-                <%= text_field_tag :search, params[:search], class:'form-control' %>
-                <%= button_tag '', :name => nil, class:'btn btn-default' do  %>
+                <%= text_field_tag :search, params[:search], class: 'form-control' %>
+                    <%= button_tag '', :name => nil, class: 'btn btn-default' do %>
                             <span class="glyphicon glyphicon-search"></span>
                             <% end %>
                      </span>
-                  <% end %>
-              </div>
+          <% end %>
+        </div>
         <!-- /input-group -->
       </div>
       <!-- /well -->
-      <div class="well">
-        <h4><%= t('.categories')%></h4>
+      <div class="row">
+        <div class="col-md-12">
 
-        <div class="row">
-          <div class="col-lg-6">
-            <ul class="list-unstyled">
-              <li><a href="#dinosaurs">Dinosaurs</a>
-              </li>
-              <li><a href="#spaceships">Spaceships</a>
-              </li>
-              <li><a href="#fried-foods">Fried Foods</a>
-              </li>
-              <li><a href="#wild-animals">Wild Animals</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-lg-6">
-            <ul class="list-unstyled">
-              <li><a href="#alien-abductions">Alien Abductions</a>
-              </li>
-              <li><a href="#business-casual">Business Casual</a>
-              </li>
-              <li><a href="#robots">Robots</a>
-              </li>
-              <li><a href="#fireworks">Fireworks</a>
-              </li>
-            </ul>
+          <div class="well">
+            <h4><%= t('.latest_posts') %> </h4>
+            <ol>
+              <% @newest.each do |p| %>
+                  <li style="padding: 10px"> <%= link_to p.title, users_post_path(p) %>
+                    <br/>  </li>
+
+
+              <% end %>
+            </ol>
           </div>
         </div>
       </div>
+
       <!-- /well -->
       <div class="well">
         <h4>Side Widget Well</h4>

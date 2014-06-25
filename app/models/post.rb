@@ -9,6 +9,7 @@ class Post < ActiveRecord::Base
   has_many :comments , dependent: :destroy
   has_many :images
 
+  scope :order_desc, -> {order('created_at DESC')}
 
   def self.search(search)
     #binding.pry;

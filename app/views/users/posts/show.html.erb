@@ -6,7 +6,8 @@
       <div class="panel-body">
         <%= @post.text %>
         <hr>
-                    <button class="btn btn-info"><%= t('.add_comment')%></button>
+                    <button class="btn btn-info">
+                      <i class="glyphicon glyphicon-comment"></i><%=t('.comment')%></button>
         <div class="well" id="coment-well">
           <%= form_for [:users,@post, Comment.new], html: {role: 'form', class: 'form-horizontal'} do |f| %>
               <div class="form-group">
@@ -23,9 +24,9 @@
           <% if @post.comments.blank? %>
               <div class="alert alert-info"><%= t('.no_comment')%></div>
           <% else %>
-              <% @post.comments.each do |c| %>
+              <% @post_comments.each do |c| %>
 
-                  <h3> <%= c.user.try(:email) ||'anonymous' %>
+                  <h3> <%=link_to c.user.try(:name) ,users_user_path(c.user_id) if (c.user_id) %>
                     <small><%= time_ago_in_words c.created_at %> ago</small>
                   </h3>
                   <p><%= c.text %> </p>

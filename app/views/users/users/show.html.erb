@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <ul class="nav nav-tabs" id="users">
+        <li class="active"><a href="#profile"><%=t('.profile')%></a></li>
+        <li><a href="#messages"><%=t('.comments')%></a></li>
+        <% if current_user.try(:name) == @user.name %>
+        <li><a href="#settings"><%=t('.settings')%></a></li>
+        <%end%>
+      </ul>
+
+
+
+      <div class="tab-content">
+        <div class="tab-pane active" class="tab-pane" id="profile">
+          <h2><%= @user.name %></h2>
+          <b><%= t('.lastsignin') %></b>
+          <%= @user.last_sign_in_at.strftime(" %m/%d/%Y %I:%M") %> <br/>
+          <b><%= t('.created_at') %></b>
+          <%= @user.created_at.strftime(" %m/%d/%Y %I:%M") %>    <br/>
+           <%= image_tag @user.avatar_url(:thumbnail), class: "center-block img-circle img-responsive" %>
+        </div>
+
+
+  <div class="tab-pane" id="messages">
+    <% @user.comments.each do |c|%>
+    <%= link_to  c.text, users_post_path(c.post_id)%><br/>
+        <%= t('.at_theme')%> <%=link_to  c.post.title,users_post_path(c.post_id)%>
+        <%= time_ago_in_words c.created_at  %> <br/>
+            <hr>
+        <%end%>
+  </div>
+
+  <div class="tab-pane" id="settings">
+    <%= render 'form' %>
+  </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+

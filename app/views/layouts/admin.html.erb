@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DemoApp</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+        <li><%= link_to t('.posts'),admin_posts_path %></li>
+      </ul>
+      </div>
+  </nav>
+
+
+
+
+<% if notice.present? %>
+    <div class="alert alert-success"><%= notice %></div>
+<% end %>
+
+<% if alert.present? %>
+    <div class="alert alert-danger"><%= alert %></div>
+<% end %>
+<%= yield %>
+
+</body>
+</html>
