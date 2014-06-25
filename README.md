@@ -1,6 +1,6 @@
 <h1>demo_app</h1>
 
-sample of simple app
+Sample of simple app
 
 For deploy on local machine use following commands:
 
