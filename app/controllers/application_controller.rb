@@ -2,8 +2,20 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
   before_filter :set_il8n_locale_from_params
+  after_filter :store_location
 
 
+  def store_location
+    session[:previous_url] = request.fullpath
+  end
+
+  def after_sign_in_path_for(resource)
+    session[:previous_url] || root_path
+  end
+
+  def after_sign_out_path_for(resource)
+    session[:previous_url] || root_path
+  end
   protected
 
   def set_il8n_locale_from_params
